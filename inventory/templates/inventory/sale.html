@@ -1,0 +1,12 @@
+{% extends 'inventory/base.html' %}
+
+{% block title %}Add Sale{% endblock %}
+
+{% block content %}
+<p>Please add a sale here</p>
+<form action="{% url 'addsale' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

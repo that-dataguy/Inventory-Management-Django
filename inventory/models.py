@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 
 # Create your models here.
 
@@ -15,5 +16,7 @@ class Shirt(models.Model):
     )
     quantity = models.IntegerField()
 
-    def __str__ (self):
-        return f"{self.shirt_size} ({self.id})"
+class ShirtForm(ModelForm):
+    class Meta:
+        model = Shirt
+        fields = ['sale_date','shirt_size', 'quantity']
