@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Shirt, ShirtForm
+from .models import Product, ShirtForm
 from django.urls import reverse
 
 # Create your views here.
@@ -8,7 +8,7 @@ def index(request):
     return HttpResponse("Hello, You're at Picture This")
 
 def salesreport(request):
-    shirt_sales = Shirt.objects.all() 
+    shirt_sales = Product.objects.all() 
     context = {'shirt_sales': shirt_sales} 
     return render(request, 'inventory/reports.html', context)
 

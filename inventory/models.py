@@ -3,15 +3,16 @@ from django.forms import ModelForm
 
 # Create your models here.
 
-class Shirt(models.Model):
-    shirt_color = models.CharField(
+class Product(models.Model):
+    product_name = models.CharField(max_length=10)
+    color = models.CharField(
         max_length = 10,
         choices=[
             ('White',"White"),
             ('Black',"Black"),
         ]
     )
-    shirt_size = models.CharField(
+    size = models.CharField(
         max_length = 3,
         choices=[
             ('S',"Small"),
@@ -21,12 +22,10 @@ class Shirt(models.Model):
         ]
     )
     quantity = models.PositiveIntegerField()
-    sale_date = models.DateField(auto_now=True)
-    
     #class Meta:
         #sequence = ('id','shirt_color','shirt_size','quantity','sale_date')
 
 class ShirtForm(ModelForm):
     class Meta:
-        model = Shirt
-        fields = ['shirt_color','shirt_size', 'quantity']
+        model = Product
+        fields = ['color','size', 'quantity']

@@ -1,8 +1,10 @@
 {% extends 'inventory/base.html' %}
+{% load static %}
 
 {% block title %}Add Sale{% endblock %}
 
 {% block content %}
+<img src="{% static 'inventory/picturethis.jpg' %}" alt="picturethis">
 <p>Please add a sale here</p>
 <form action="{% url 'addsale' %}" method="post">
     {% csrf_token %}
