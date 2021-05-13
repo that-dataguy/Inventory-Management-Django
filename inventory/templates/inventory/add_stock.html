@@ -1,0 +1,17 @@
+{% extends 'inventory/base.html' %}
+{% load static %}
+
+{% block title %}Add Stock{% endblock %}
+
+{% block content %}
+<img src="{% static 'inventory/picturethis.jpg' %}" alt="picturethis">
+<p>Add new stock details here</p>
+<form action="{% url 'addstock' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+
+<a href="http://www.djangoproject.com/"><img src="https://www.djangoproject.com/m/img/badges/djangopowered126x54.gif" border="0" alt="Powered by Django." title="Powered by Django." />
+</a>
+{% endblock %}
